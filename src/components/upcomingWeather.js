@@ -1,8 +1,18 @@
 import React from 'react';
-import { SafeAreaView, Text, StyleSheet, FlatList, View, StatusBar } from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  FlatList,
+  View,
+  StatusBar,
+  ImageBackground,
+} from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 //IonIcon.loadFont();
+
+// prop is short for property. They are used to pass data from parent to child. We can use props to customize our components
 
 const data = [
   {
@@ -63,9 +73,13 @@ const upcomingWeather = () => {
   )
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Upcoming weather</Text>
-      <FlatList
-        data={data} renderItem={renderItem} keyExtractor={(item) => item.dt_txt} />
+      {/* Since we want to accept children we want to change it to not to use self closing tags. So add closing tag */}
+      <ImageBackground source={require('../../assets/cloud_background.jpg')} style={styles.image} >
+        <Text>Upcoming weather</Text>
+
+        <FlatList
+          data={data} renderItem={renderItem} keyExtractor={(item) => item.dt_txt} />
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -74,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: 'red'
+    backgroundColor: 'lavender'
   },
   item: {
     padding: 20,
@@ -93,6 +107,9 @@ const styles = StyleSheet.create({
   date: {
     color: 'white',
     fontSize: 15,
+  },
+  image: {
+    flex: 1,
   }
 })
 export default upcomingWeather;
