@@ -11,8 +11,9 @@ import {
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 //IonIcon.loadFont();
+//core components usully come with props which can be used.
 
-// prop is short for property. They are used to pass data from parent to child. We can use props to customize our components
+// prop is short for property. They are used to pass data from parent to child. We can use props to customize our components. MOST IMPORTANTLY IT PROMOTES COMPONENT REUSUABLİTY.
 
 const data = [
   {
