@@ -15,6 +15,12 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 
 // prop is short for property. They are used to pass data from parent to child. We can use props to customize our components. MOST IMPORTANTLY IT PROMOTES COMPONENT REUSUABLİTY.
 
+//Props are immutable so they cant be changed once the component is created.
+
+//We use unidirectional dala flow to pass the props from parent to child.
+
+//unidirectional data flow means data can only move in one direcition.
+
 const data = [
   {
     dt_txt: "2022-08-30 14:00:00",
