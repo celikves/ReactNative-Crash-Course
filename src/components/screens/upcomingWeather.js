@@ -72,7 +72,7 @@ const upcomingWeather = () => {
   return (
     <SafeAreaView style={container}>
       {/* Since we want to accept children we want to change it to not to use self closing tags. So add closing tag */}
-      <ImageBackground source={require('../../assets/cloud_background.jpg')} style={image} >
+      <ImageBackground source={require('../../../assets/cloud.jpg')} style={image} >
         <Text>Upcoming weather</Text>
 
         <FlatList
