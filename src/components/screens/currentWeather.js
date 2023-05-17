@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
