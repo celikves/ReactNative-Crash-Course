@@ -7,9 +7,9 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const ListItem = (props) => {
     const { dt_txt, min, max, condition } = props
-    const {date,temp} = styles
+    const {date,temp,item} = styles
     return (
-        <View style={styles.item}>
+        <View style={item}>
             <Text>
                 <IonIcon name="ios-sunny" size={50} color="yellow"></IonIcon>
             </Text>
