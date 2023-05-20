@@ -6,12 +6,20 @@ import UpcomingWeather from './src/components/screens/upcomingWeather';
 import City from './src/components/screens/City';
 import LoginScreen from './src/components/screens/LoginScreen';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator()
 const App = () => {
   return (
-    <View style={styles.container}>
-      <LoginScreen />
+    <NavigationContainer>
+      <Tab.Navigator>
+        <View style={styles.container}>
+      <CurrentWeather />
       {/* <OurChild message={ 'How are your today'}/> */}
     </View>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
