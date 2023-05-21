@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import CurrentWeather from './src/components/screens/currentWeather';
-import UpcomingWeather from './src/components/screens/upcomingWeather';
+import CurrentWeather from './src/components/screens/CurrentWeather';
+import UpcomingWeather from './src/components/screens/UpcomingWeather';
 import City from './src/components/screens/City';
 import LoginScreen from './src/components/screens/LoginScreen';
 
@@ -23,10 +22,6 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
 
 export default App;
