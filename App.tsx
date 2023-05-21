@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import CurrentWeather from './src/components/screens/currentWeather';
 import UpcomingWeather from './src/components/screens/upcomingWeather';
 import City from './src/components/screens/City';
@@ -14,10 +14,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <View style={styles.container}>
-      <CurrentWeather />
-      {/* <OurChild message={ 'How are your today'}/> */}
-    </View>
+        <Tab.Screen name={'Current'} component={CurrentWeather} />
+        <Tab.Screen name={'Upcoming'} component={UpcomingWeather} />
+        <Tab.Screen name={'City'} component={City} />
+        {/* <OurChild message={ 'How are your today'}/> */}
       </Tab.Navigator>
     </NavigationContainer>
   );
