@@ -4,7 +4,7 @@ import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
-const currentWeather = () => {
+const CurrentWeather = () => {
     return (
         <SafeAreaView style={styles.wrapper}>
             <View style={styles.container}>
@@ -67,5 +67,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default currentWeather
+export default CurrentWeather
 
