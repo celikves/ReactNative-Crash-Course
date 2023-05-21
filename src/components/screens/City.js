@@ -15,7 +15,6 @@ const City = () => {
                 <Text style={styles.countryName, styles.cityText}>Turkey</Text>
                 <View>
                     <Text><IonIcon name="ios-person" size={116} color="yellow"></IonIcon></Text>
-                    <Icon name="arrow_right" size={130} color="#841777" />
                     <EntypoIcon name="video-camera" size={126} color="green" />
                 </View>
             </ImageBackground>
