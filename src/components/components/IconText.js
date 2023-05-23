@@ -9,6 +9,7 @@ import {
 //states helps us to add remove and modify things in out component
 //we can trigger UI updates based on the changes
 //when the state changes the component rerenders.
+//state help us internally manage data within the our component
 
 const IconText = (props) => {
     const { iconName, iconColor,bodyText,bodyTextSytles} = props
