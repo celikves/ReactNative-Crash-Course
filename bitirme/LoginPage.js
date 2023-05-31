@@ -1,9 +1,13 @@
+/** npx react-native run-ios --simulator='iPhone 14 Pro (16.0)' */
+
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
+import Modal from 'react-native-modal';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isModalVisible, setModalVisible] = useState(false);
 
     const handleLogin = () => {
         // Replace with your own login logic
@@ -13,6 +17,7 @@ const LoginPage = () => {
         } else {
             console.log('Invalid email or password');
         }
+
     };
 
     const handleSignUp = () => {
@@ -79,20 +84,18 @@ const styles = StyleSheet.create({
     },
     signupContainer: {
         flexDirection: 'row',
+        marginTop: 16,
         alignItems: 'center',
     },
     signupText: {
         marginRight: 8,
     },
     signupButton: {
-        backgroundColor: 'gray',
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        borderRadius: 4,
+        padding: 8,
     },
     signupButtonText: {
-        color: 'white',
-        fontSize: 14,
+        color: 'blue',
+        fontSize: 16,
         fontWeight: 'bold',
     },
 });
