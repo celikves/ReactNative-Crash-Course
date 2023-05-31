@@ -1,10 +1,30 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import React, { useState, useRef } from 'react';
 
-const LoginComponent = () => {
+import { Ionicons } from 'react-native-vector-icons/Ionicons';
+
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert, Animated, PanResponder } from 'react-native';
+
+
+const LoginComponent = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const pan = useRef(new Animated.ValueXY()).current;
+
+    const panResponder = useRef(
+        PanResponder.create({
+            onMoveShouldSetPanResponder: (_, gestureState) => gestureState.dy > 10,
+            onPanResponderMove: Animated.event([null, { dy: pan.y }], { useNativeDriver: false }),
+            onPanResponderRelease: (_, gestureState) => {
+                if (gestureState.dy > 50) {
+                    navigation.goBack();
+                } else {
+                    Animated.spring(pan, { toValue: { x: 0, y: 0 }, useNativeDriver: false }).start();
+                }
+            },
+        })
+    ).current;
 
     const handleLogin = () => {
         if (email === '' || password === '') {
@@ -22,7 +42,11 @@ const LoginComponent = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <Animated.View style={[styles.container, pan.getLayout()]} {...panResponder.panHandlers}>
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                <Ionicons name="arrow-back" size={24} color="#007bff" />
+            </TouchableOpacity>
+
             <Text style={styles.title}>Login</Text>
 
             <View style={styles.formContainer}>
@@ -48,7 +72,7 @@ const LoginComponent = () => {
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </Animated.View>
     );
 };
 
@@ -58,6 +82,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ffffff',
+    },
+    backButton: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
     },
     title: {
         fontSize: 24,
@@ -88,5 +117,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
     },
 });
+
+
 
 export default LoginComponent;
