@@ -1,23 +1,31 @@
 /** npx react-native run-ios --simulator='iPhone 14 Pro (16.0)' */
-
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
-import Modal from 'react-native-modal';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isModalVisible, setModalVisible] = useState(false);
+    const [loginMessage, setLoginMessage] = useState('');
+
+    const navigation = useNavigation();
 
     const handleLogin = () => {
         // Replace with your own login logic
         if (email === 'example@example.com' && password === 'password123') {
-            // Redirect to the home page or perform any other action
+            setLoginMessage('Login successful!');
             console.log('Login successful!');
+            navigation.replace('QuizPage'); // Use replace instead of navigate
+            //navigation.navigate('QuizPage'); // Redirect to QuizPage
         } else {
+            setLoginMessage('Invalid email or password');
             console.log('Invalid email or password');
         }
 
+        // Clear login message after 3 seconds
+        setTimeout(() => {
+            setLoginMessage('');
+        }, 3000);
     };
 
     const handleSignUp = () => {
@@ -49,6 +57,7 @@ const LoginPage = () => {
                     <Text style={styles.signupButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
+            {loginMessage !== '' && <Text style={styles.message}>{loginMessage}</Text>}
         </View>
     );
 };
@@ -61,7 +70,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
     },
     input: {
-        width: '100%',
+        width: '90%',
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
@@ -74,29 +83,37 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         borderRadius: 8,
         marginBottom: 8,
-        width: '100%',
+        width: '90%',
         alignItems: 'center',
     },
     buttonText: {
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
+        textAlign: 'center',
     },
     signupContainer: {
+        marginTop: 10,
         flexDirection: 'row',
-        marginTop: 16,
         alignItems: 'center',
     },
     signupText: {
         marginRight: 8,
     },
     signupButton: {
-        padding: 8,
+        backgroundColor: 'lightblue',
+        alignContent:'flex-end',
+        paddingVertical: 8,
+        paddingHorizontal: 12,
+        borderRadius: 4,
     },
     signupButtonText: {
-        color: 'blue',
+        fontSize: 14,
+    },
+    message: {
+        marginTop: 16,
+        color: 'red',
         fontSize: 16,
-        fontWeight: 'bold',
     },
 });
 
